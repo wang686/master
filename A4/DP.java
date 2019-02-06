@@ -40,7 +40,9 @@ class DP {
      * For fun... Compute fib using the golden ratio.
      */
     static long ffib (int n) {
-	return 0; 
+        double magic = Math.sqrt(5);
+        double result = (1/magic) * (Math.pow(((1+magic)/2),n) - Math.pow(((1-magic)/2),n));
+        return (long)result;
     }
 
     // -----------------------------------------------------------------------------
