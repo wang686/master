@@ -105,13 +105,45 @@ class DP {
      * T/F depending on whether it is possible to find a
      * subsequence of the list whose sum is exactly 's'
      */
-    static boolean partition (List<Integer> s, int sum) {
-	return false;
+    static boolean partition (List<Integer> coins, int n) {
+        try {
+            if (n == 0) return true; // previous choices succeeded
+            else return partition(coins.getRest(), n) ||
+                        partition(coins.getRest(),n - coins.getFirst());
+        }
+        catch (EmptyListE e) {
+            return false; // no way to make change
+        }
     }
 
-    static Object partitionMemo = null;
+    static Map<Pair<List<Integer>,Integer>,Integer> partitionMemo = new WeakHashMap<>();
     static boolean mpartition (List<Integer> s1, int sum1) {
-	return false;
+        /**
+         * We again want to use computeIfAbsent. When we communicate with
+         * the hash table, we combine all the information into a key and
+         * take back apart when we extract from the hash table.
+         */
+/*        static int mcoinChange (List<Coin> coins1, int n1) {
+            return coinChangeMemo.computeIfAbsent(new Pair<>(coins1,n1), p -> {
+                List<Coin> coins = p.getFirst();
+                int n = p.getSecond();
+                try {
+                    if (n < 0) return 0; // no way to make change
+                    else if (n == 0) return 1; // previous choices succeeded
+                    else return mcoinChange(coins.getRest(), n) +
+                                mcoinChange(coins, n - coins.getFirst().getValue());
+                }
+                catch (EmptyListE e) {
+                    return 0; // no way to make change
+                }
+            });
+        }*/
+
+
+
+
+
+        return false;
     }
 
     // -----------------------------------------------------------------------------
