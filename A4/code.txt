@@ -1,0 +1,65 @@
+return lcsMemo.computeIfAbsent(new Pair<>(cs11,cs21), p -> {
+        List<Character> cs1 = p.getFirst();
+        List<Character> cs2 = p.getSecond();
+    try {
+        if (cs1.length() == 0 || cs2.length() == 0) return new Empty<>();
+        else if (cs1.getFirst() == cs2.getFirst()) {
+            return new Node<>(cs1.getFirst(), (mlcs(cs1.getRest(), cs2.getRest())));
+
+        } else {
+            return longest(mlcs(cs1, cs2.getRest()), mlcs(cs1.getRest(), cs2));
+        }
+    } catch (EmptyListE e) {
+        return new Empty<>();
+    }
+
+
+
+10:55 PM 2/6/2019
+    // -----------------------------------------------------------------------------
+    // Longest common subsequence ...
+    // -----------------------------------------------------------------------------
+
+
+
+    static List<Character> longest(List<Character> a , List<Character> b ){
+        if(a.length() >= b.length())
+            return a;
+        else return b;
+    }
+
+    static List<Character> lcs (List<Character> cs1, List<Character> cs2) {
+        try {
+            if (cs1.length() == 0 || cs2.length() == 0){
+                return new Empty<>();
+            }
+            else if (cs1.getFirst() == cs2.getFirst()) {
+                return new Node<>(cs1.getFirst(), (lcs(cs1.getRest(), cs2.getRest())));
+            }
+            else {
+                return longest(lcs(cs1, cs2.getRest()), lcs(cs1.getRest(), cs2));
+            }
+        } catch (EmptyListE e) {
+            return new Empty<>();
+        }
+    }
+
+    static Map<Pair<List<Character>,List<Character>>,List<Character>> lcsMemo = new WeakHashMap<>();
+    static List<Character> mlcs (List<Character> cs11, List<Character> cs21) {
+        return lcsMemo.computeIfAbsent(new Pair<>(cs11, cs21), p -> {
+            List<Character> cs1 = p.getFirst();
+            List<Character> cs2 = p.getSecond();
+            try {
+                if (cs1.length() == 0 || cs2.length() == 0)
+                    return new Empty<>();
+                else if (cs1.getFirst() == cs2.getFirst()) {
+                    return new Node<>(cs1.getFirst(), (mlcs(cs1.getRest(), cs2.getRest())));
+                } else {
+                    return longest(mlcs(cs1, cs2.getRest()), mlcs(cs1.getRest(), cs2));
+                }
+            } catch (EmptyListE e) {
+                return new Empty<>();
+            }
+        });
+    }
+}
