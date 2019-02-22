@@ -25,7 +25,7 @@ int main(){
     char menu[] = "1. Perform Left Bit Shift Operation (one value)\n2. Perform Right Bit Shift Operation (one value)\n3. Perform Binary AND Operation (two values)\n4. Perform Binary OR Operation (two values)\n5. Perform Binary One's Complement (~) Operation (one value)\n6. Perform Binary XOR Operation (two values)\n7. Quit\n\n";
     int i;
     
-//while(1){
+while(1){
     printf("                Main Menu\n");
     printf("                ---------\n");
     printf("\n%s",menu);
@@ -62,7 +62,7 @@ int main(){
         
     }
 
-//}//while
+}//while
 
 
     return 0;
