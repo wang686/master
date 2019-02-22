@@ -87,7 +87,7 @@ void one(){
     printf("\n\n        Entered Integer: ");
     showbits(alpha);
     alpha = alpha<<beta;
-    printf("\n        ~'ed           : ");
+    printf("\n        Left Shifted   : ");
     showbits(alpha);
 }
 
@@ -101,7 +101,7 @@ void two(){
     printf("\n\n        Entered Integer: ");
     showbits(alpha);
     alpha = alpha>>beta;
-    printf("\n        ~'ed           : ");
+    printf("\n        Right Shifted  : ");
     showbits(alpha);
 }
 
@@ -162,7 +162,6 @@ void six(){
     printf("\n        XOR'ed           : ");
     showbits(alpha);
 }
-
 
 
 
