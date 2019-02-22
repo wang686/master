@@ -73,7 +73,12 @@ void showbits(int input){
     int i;
     
     for(i = 31; i>=0; i--)
-        printf("%d",abs((input&(1<<i)) >>i));
+        if (((input&(1<<i)) >>i) < 0){
+            printf("%d",((input&(1<<i)) >>i)*-1);
+        }
+        else{
+            printf("%d",(input&(1<<i)) >>i);
+        }//printf("%d",abs((input&(1<<i)) >>i));
         printf(" (base 10 %d)",input);
 }
 
