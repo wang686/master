@@ -16,16 +16,20 @@ struct person{
 };
 
 int main (void){
-  int i;
+  printf("---------------SecondStruct-----------\n");
   demo_function ();
+  printf("---------------SecondStruct ended-----------\n");
+  
+  printf("---------------LinkedList-----------\n");
+  printf("---------------LinkedList ended-----------\n");
   return (0);
 }
 
+//---------------SecondStruct-----------
 int demo_function (){
   int i;
   struct person class[54];
   
-
   class[0].year = 2004;
   class[0].ppg = 5.2;
   strcpy (class[0].first, "Jane");
@@ -58,16 +62,15 @@ int demo_function (){
   
   class[6].year = 2008;
   class[6].ppg = 3.6;
-  strcpy (class[6].first, "Brian");
-  strcpy (class[6].last, "Smith");
+  strcpy (class[6].first, "Frank");
+  strcpy (class[6].last, "Frank");
   
   for(i = 0; i < 7; i++){
-    //printf("%d\n",i);
-    DisplayStats(&class[i]);
+    DisplayStats(&(class[i]));
   }
 }
 
 void DisplayStats(struct person *input){
-//printf ("%s, %s:  ",(*input).first,(*input).last);
 printf ("%s, %s:  year: %d points per game: %lf\n", (*input).first,(*input).last, (*input).year, (*input).ppg);
 }
+//---------------SecondStruct ended -----------
