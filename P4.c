@@ -16,19 +16,15 @@ struct person{
 };
 
 int main (void){
-  struct person teacher;
   int i;
-  teacher.year = 2005;
-  teacher.ppg = 10.4;
-  strcpy (teacher.first, "Adam");
-  strcpy (teacher.last, "Hoover");
   demo_function ();
   return (0);
 }
 
 int demo_function (){
-  struct person class[54];
   int i;
+  struct person class[54];
+  
 
   class[0].year = 2004;
   class[0].ppg = 5.2;
@@ -42,8 +38,8 @@ int demo_function (){
   
   class[2].year = 2006;
   class[2].ppg = 4.6;
-  strcpy (class[3].first, "Ada");
-  strcpy (class[3].last, "Ada");
+  strcpy (class[2].first, "Ada");
+  strcpy (class[2].last, "Ada");
   
   class[3].year = 2007;
   class[3].ppg = 4.3;
@@ -56,21 +52,22 @@ int demo_function (){
   strcpy (class[4].last, "Clara");
   
   class[5].year = 2008;
-  class[5].ppg = 4.0;
+  class[5].ppg = 3.9;
   strcpy (class[5].first, "Dean");
   strcpy (class[5].last, "Dean");
   
   class[6].year = 2008;
-  class[6].ppg = 4.0;
+  class[6].ppg = 3.6;
   strcpy (class[6].first, "Brian");
   strcpy (class[6].last, "Smith");
   
-  for(i = 0; i < 7; i++)
-    //printf("%d",i);
-    DisplayStats(&(class[i]));
+  for(i = 0; i < 7; i++){
+    //printf("%d\n",i);
+    DisplayStats(&class[i]);
+  }
 }
 
 void DisplayStats(struct person *input){
-printf ("%s, %s:  ",(*input).first,(*input).last);
-printf ("year: %d points per game: %lf\n", (*input).year, (*input).ppg);
+//printf ("%s, %s:  ",(*input).first,(*input).last);
+printf ("%s, %s:  year: %d points per game: %lf\n", (*input).first,(*input).last, (*input).year, (*input).ppg);
 }
