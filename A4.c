@@ -16,6 +16,9 @@ struct team{
     char name[32];
 };
 
+void cricket();
+
+
 int main(){
     cricket();
     return(0);
