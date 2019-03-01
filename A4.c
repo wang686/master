@@ -30,6 +30,8 @@ void cricket() {
     int playerNum;
     int i,j,k;
     
+    printf("This program expect valid input related to Cricket game, ");
+    printf("but there is no limit in this program\n");
 //take and store user input, then construct an array of teams
     printf("Enter the number of teams you wish to record: ");
     scanf("%d",&teamNum);
@@ -41,7 +43,9 @@ void cricket() {
         scanf("%s",teams[i].name);
     }
 
-//let user decide which plaer belongs which team.
+//let user decide which player belongs which team.
+    printf("\n\nBeware that each team should have no more than 11 players, ");
+    printf("but there is no limit in this program\n");
     printf("Enter the TOTAL number of players for all teams: ");
     scanf("%d",&playerNum);
     struct player players[playerNum];//<----------declared new variable;
