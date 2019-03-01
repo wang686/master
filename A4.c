@@ -16,25 +16,30 @@ struct team{
     char name[32];
 };
 
+int main(){
+    cricket();
+    return(0);
+}
 
-int main() {
+
+void cricket() {
     int teamNum;
     int playerNum;
     int i,j,k;
     
 //take and store user input, then construct an array of teams
-    printf("input teamNum: ");
+    printf("Enter the number of teams you wish to record: ");
     scanf("%d",&teamNum);
     struct team teams[teamNum];//<----------declared new variable;
     
 //for each element in teams array, take user input and store it as its team name.    
     for(i = 0; i<teamNum;i++){
-        printf("enter teamName: ");
+        printf("Enter the name(s) of the teams: ");
         scanf("%s",teams[i].name);
     }
 
 //let user decide which plaer belongs which team.
-    printf("input playerNum: ");
+    printf("Enter the TOTAL number of players for all teams: ");
     scanf("%d",&playerNum);
     struct player players[playerNum];//<----------declared new variable;
     
@@ -46,6 +51,10 @@ int main() {
         scanf("%f",&players[i].bat);
     }
     
+    printf("\nListing of players and batting average according to team names: \n\n");
+//print out result
+//1. loop to print team name in teams array
+//2. nested in the first, prints out all players whose team name match the current iteration's.
     for (i = 0; i < teamNum; i++) {
         printf("%s-\n",teams[i].name);
         for (int j = 0; j < playerNum; j++) {
@@ -53,9 +62,6 @@ int main() {
                 printf("        %s       %f\n",players[j].name, players[j].bat);
             }
         }
-    }
+    }//forloop
  
-
-
-    return 0;
-}
+}//cricket
