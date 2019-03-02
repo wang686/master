@@ -1,9 +1,7 @@
 /******************************************************************************
-
                             Online C Compiler.
                 Code, Compile, Run and Debug C program online.
 Write your code in this editor and press "Run" button to compile and execute it.
-
 *******************************************************************************/
 struct Node{
     int data; 
@@ -97,21 +95,17 @@ void two(struct Node *input, int num){
     }
 }
 void three(struct Node *input){
-    //empty case;
-    if(input == NULL){
-        printf("\nno node to delete\n");
+    struct Node *temp = input;
+    if(input->next == NULL){
+    input->data = NULL;
+    input->next = NULL;
     }
-    else{
-
-        
-        //find the second last node and points to it
-        while(input->next != NULL){
-            input = input->next;
-        }
-        
-        free(input);
-
+    while(temp->next != NULL){
+        input=temp;
+        temp=temp->next;
     }
+    input->next = NULL;
+
 
 }
 void four();
