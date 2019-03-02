@@ -13,7 +13,7 @@ struct Node{
 #include <stdio.h>
 #include <stdlib.h>
 
-void one();void two();void three();void four();void five();void six();void seven();void showlist();
+//void one();void two();void three();void four();void five();void six();void seven();void showlist();
 
 int main(){
     int i,j,k;
@@ -43,6 +43,17 @@ int main(){
             showlist(head);
             break;
             
+            case 2:
+            printf("Enter your node in the list: ");
+            scanf("%d",&nodedata);
+            two(head, nodedata);
+            break;
+            
+            case 3:
+            three(head);
+            showlist(head);
+            break;
+            
             
             case 8:
             return(0);
@@ -62,19 +73,47 @@ void one(struct Node *input, int num){
         input->data = num;
     }
     else{
-    //find the last node and points to it
-    while(input->next != NULL){
-    input = input->next;
+        //find the last node and points to it
+        while(input->next != NULL){
+            input = input->next;
+        }
+        input->next = (struct Node *) malloc (sizeof (struct Node));
+        input->next->data = num;
+        input->next->next = NULL;
     }
-    input->next = (struct Node *) malloc (sizeof (struct Node));
-    input->next->data = num;
-    input->next->next = NULL;
+}
+void two(struct Node *input, int num){
+    //empty case;
+    if(input->data == NULL){
+        input->data = num;
+        showlist(input);
     }
+    else{
+        struct Node *temp;
+        temp = (struct Node *) malloc (sizeof (struct Node));
+        temp->next = input;
+        temp->data = num;
+        showlist(temp);
+    }
+}
+void three(struct Node *input){
+    //empty case;
+    if(input == NULL){
+        printf("\nno node to delete\n");
+    }
+    else{
 
+        
+        //find the second last node and points to it
+        while(input->next != NULL){
+            input = input->next;
+        }
+        
+        free(input);
+
+    }
 
 }
-void two();
-void three();
 void four();
 void five();
 void six();
