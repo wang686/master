@@ -95,17 +95,19 @@ void two(struct Node *input, int num){
     }
 }
 void three(struct Node *input){
+    
     struct Node *temp = input;
     if(input->next == NULL){
     input->data = NULL;
     input->next = NULL;
     }
+    else{
     while(temp->next != NULL){
         input=temp;
         temp=temp->next;
     }
     input->next = NULL;
-
+    }
 
 }
 void four();
@@ -117,5 +119,6 @@ void showlist(struct Node *head){
         printf("%d->",head->data);
         head = head->next;
     }
+    if(head->data != NULL)
     printf("%d",head->data);
 }
