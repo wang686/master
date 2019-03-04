@@ -4,13 +4,13 @@ counter = {}
 sortedDict = []
 cOne = -1
 cTwo = -1
-pOne = 20
-pTwo = 20
+pOne = 39
+pTwo = 5
 resultmul = -1
 resultadd = -1
 
 testinput1 = "ITTISQ"
-testinput = "!QR7LVTR7TQ7T1R3LVGX2T R73!TQ3TRN;7R8L QRLX2RLOR2ETRNL 5RLQR3 DG2L;Q;0D:!QJR2ETRJT V;QRTQ!JV;RV;3E!QTW"
+testinput = "X0N30NL8Q98G4N1T0G8I4M83QNR8WR8D  .8WR8IQNLXWRYLQR,8WR1W4R498X08I4M84PPQWRL0182XW0Z8QZ8LX08R0I82NGPLQ4R4TGLW28KRWL,8SW 9"
 
 def addDict(input):  
   for i in input:
@@ -39,10 +39,5 @@ cTwo = theAlphabet.index(sortedDict[1]) + 1
 resultmul = ((cTwo - cOne) * egcd(pTwo-pOne,length)[1]) % length
 resultadd = ((cOne-(resultmul*pOne)) * egcd(resultmul,length)[1]) % length
 
-print(cOne,cTwo,resultmul,resultadd)
-print(sortedDict)
 for i in testinput:
   print(theAlphabet[decipher(resultmul,resultadd,theAlphabet.index(i)+1)-1],end="")
-  
-
-
