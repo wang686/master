@@ -22,6 +22,10 @@ int main(){
       strcpy(seatMap[i][j],"0");
   }
   first(seatMap);
+  first(seatMap);
+  first(seatMap);
+  second(seatMap);
+  third(seatMap);
   printSeatMap(seatMap);
   printf("\n%s",seatMap[i][j]);
 
@@ -57,6 +61,8 @@ void printSeatMap(char allSeats[][COL][NAME]){
 int first(char allSeats[][COL][NAME]){
   int i,j,k;
   char name[NAME];
+  
+  printf("Enter your name: \n");
   scanf("%29s",name);
   
   for(i = 0; i < COL;i++){
@@ -67,9 +73,42 @@ int first(char allSeats[][COL][NAME]){
         }
     }
   }
+}
+  
 
-
-  //strcpy(allSeats[ROW-1][COL-1], "hahaha");
-
+int second(char allSeats[][COL][NAME]){
+  int i,j,k;
+  char name[NAME];
+  
+  printf("Enter your name: \n");
+  scanf("%29s",name);
+  
+  for(i = 0; i < COL;i++){
+    for(j = FIRST; j< BUS;j++){
+        if(allSeats[i][j][0] == '0'){
+          strcpy(allSeats[i][j],name);
+          return 0;
+        }
+    }
+  }
+  
+  
 }
 
+
+int third(char allSeats[][COL][NAME]){
+  int i,j,k;
+  char name[NAME];
+  
+  printf("Enter your name: \n");
+  scanf("%29s",name);
+  
+  for(i = 0; i < COL;i++){
+    for(j = BUS; j< ECO;j++){
+        if(allSeats[i][j][0] == '0'){
+          strcpy(allSeats[i][j],name);
+          return 0;
+        }
+    }
+  }
+}
