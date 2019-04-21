@@ -73,6 +73,7 @@ int first(char allSeats[][COL][NAME]){
         }
     }
   }
+  
 }
   
 
