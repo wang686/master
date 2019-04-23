@@ -1,0 +1,26 @@
+%f default 6 digit precision
+
+
+%e less than -4 or more than 6
+
+%-4d left justify // +   space   0  
+# o for octal -x for hex
+forces to print fractional part
+
+printf("%*.* f" ,7,2,98.765)
+\b \f \r \v \a 
+
+scanf("i")
+
+scanf("%8[aeiou]",z) //read aeiou only up to 8 times //[^aeiou]
+
+scanf("%d-%d-%d",,,) // read in and save individually 12-12-1212
+
+scanf("%d%c%d%c%d",,,) //ignore two %c
+
+
+# File processing
+
+11.2 line 7
+
+
