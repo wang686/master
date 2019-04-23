@@ -10,6 +10,11 @@
 #define ECO 10
 void printSeatMap(char allSeats[][COL][NAME]);
 int first(char allSeats[][COL][NAME]);
+int second(char allSeats[][COL][NAME]);
+int third(char allSeats[][COL][NAME]);
+int findFirst(char allSeats[][COL][NAME]);
+int findSecond(char allSeats[][COL][NAME]);
+int findThird(char allSeats[][COL][NAME]);
 
 int main(){
   int i,j,k;
@@ -21,6 +26,13 @@ int main(){
     for(j = 0; j < COL;j++)
       strcpy(seatMap[i][j],"0");
   }
+  
+  
+  
+  
+  
+  
+  
 
   printSeatMap(seatMap);
   printf("\n%s",seatMap[i][j]);
