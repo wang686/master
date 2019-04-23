@@ -32,20 +32,19 @@ int main(){
   printf("%s", menu);
   scanf("%d",&menuSelection);
   
-  int availOne = findFirst(seatMap);
-  int availTwo = findSecond(seatMap);
-  int availThree = findThird(seatMap);
   
   switch(menuSelection){
       case 1:
-        
+            first(seatMap);
+        break;
       case 2:
-        printf("2");
+            second(seatMap);
         break;
       case 3:
-        printf("3");
+            third(seatMap);
         break;
       default:
+        break;
         
       
   }
@@ -108,6 +107,15 @@ int first(char allSeats[][COL][NAME]){
         }
     }
   }
+  printf("First class is full, would you like a business class?\nType 1 to proceed\n");
+  scanf("%d",&k);
+  if(k == 1){
+      second(allSeats);
+  }else{
+      printf("\nexit");
+      return 0;
+  }
+  
 }
   
 
@@ -125,6 +133,14 @@ int second(char allSeats[][COL][NAME]){
           return 0;
         }
     }
+  }
+  printf("Business class is full, would you like a economy class?\nType 1 to proceed\n");
+  scanf("%d",&k);
+  if(k == 1){
+      third(allSeats);
+  }else{
+      printf("\nexit");
+      return 0;
   }
 }
 
@@ -144,17 +160,20 @@ int third(char allSeats[][COL][NAME]){
         }
     }
   }
+    printf("\nexit");
+    return 0;
 }
 
-int findFirst(char allSeats[][COL][NAME]){
+/*int findFirst(char allSeats[][COL][NAME]){
   int i,j,k;
   for(i = 0; i < COL;i++){
     for(j = 0; j< FIRST;j++){
         if(allSeats[i][j][0] == '0'){
           return 0;
-        }else{return 1;}
+        }
     }
   }
+  return -1;
 }
 
 int findSecond(char allSeats[][COL][NAME]){
@@ -163,9 +182,10 @@ int findSecond(char allSeats[][COL][NAME]){
     for(j = FIRST; j< BUS;j++){
         if(allSeats[i][j][0] == '0'){
           return 0;
-        }else{return 1;}
+        }
     }
   }
+  return -1;
 }
 
 
@@ -176,7 +196,8 @@ int findThird(char allSeats[][COL][NAME]){
     for(j = BUS; j< ECO;j++){
         if(allSeats[i][j][0] == '0'){
           return 0;
-        }else{return 1;}
+        }
     }
   }
-}
+  return -1;
+}*/
