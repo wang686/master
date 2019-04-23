@@ -20,6 +20,8 @@ int main(){
   int i,j,k;
   int sold,class;
   char seatMap[ROW][COL][NAME] ={{"a"}};
+  int menuSelection = 0;
+  char menu[] = "\n\tPlease type 1 for \"first class\"\n\tPlease type 2 for \"business class\"\n\tPlease type 3 for \"economy class\"\n\n";
 
   //init a three d array row number, col number, name.
   for(i = 0; i< ROW;i++){
@@ -27,6 +29,31 @@ int main(){
       strcpy(seatMap[i][j],"0");
   }
   
+  printf("%s", menu);
+  scanf("%d",&menuSelection);
+  
+  int availOne = findFirst(seatMap);
+  int availTwo = findSecond(seatMap);
+  int availThree = findThird(seatMap);
+  
+  switch(menuSelection){
+      case 1:
+        
+      case 2:
+        printf("2");
+        break;
+      case 3:
+        printf("3");
+        break;
+      default:
+        
+      
+  }
+  
+  
+  
+ 
+  
   
   
   
@@ -34,7 +61,7 @@ int main(){
   
   
 
-  printSeatMap(seatMap);
+  //printSeatMap(seatMap);
   printf("\n%s",seatMap[i][j]);
 
   return 0;
