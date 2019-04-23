@@ -21,11 +21,7 @@ int main(){
     for(j = 0; j < COL;j++)
       strcpy(seatMap[i][j],"0");
   }
-  first(seatMap);
-  first(seatMap);
-  first(seatMap);
-  second(seatMap);
-  third(seatMap);
+
   printSeatMap(seatMap);
   printf("\n%s",seatMap[i][j]);
 
@@ -73,7 +69,6 @@ int first(char allSeats[][COL][NAME]){
         }
     }
   }
-  
 }
   
 
@@ -92,8 +87,6 @@ int second(char allSeats[][COL][NAME]){
         }
     }
   }
-  
-  
 }
 
 
@@ -110,6 +103,41 @@ int third(char allSeats[][COL][NAME]){
           strcpy(allSeats[i][j],name);
           return 0;
         }
+    }
+  }
+}
+
+int findFirst(char allSeats[][COL][NAME]){
+  int i,j,k;
+  for(i = 0; i < COL;i++){
+    for(j = 0; j< FIRST;j++){
+        if(allSeats[i][j][0] == '0'){
+          return 0;
+        }else{return 1;}
+    }
+  }
+}
+
+int findSecond(char allSeats[][COL][NAME]){
+  int i,j,k;
+  for(i = 0; i < COL;i++){
+    for(j = FIRST; j< BUS;j++){
+        if(allSeats[i][j][0] == '0'){
+          return 0;
+        }else{return 1;}
+    }
+  }
+}
+
+
+int findThird(char allSeats[][COL][NAME]){
+  int i,j,k;
+  
+  for(i = 0; i < COL;i++){
+    for(j = BUS; j< ECO;j++){
+        if(allSeats[i][j][0] == '0'){
+          return 0;
+        }else{return 1;}
     }
   }
 }
