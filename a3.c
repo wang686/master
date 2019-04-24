@@ -179,7 +179,21 @@ void printManifest(char allSeats[][COL][NAME]){
 
 void printBoardingPass(char allSeats[][COL][NAME], int d, char c){
     if(d<= 10 && c<= 70 && d>= 1 && c>=65){
-        printf("\n\t%s",allSeats[d-1][c-65]);
+        if(allSeats[d-1][c-65] != 0){
+            printf("\n\t%s--%d%c",allSeats[d-1][c-65],d,c);
+            if(d < 2){
+                printf("first class");
+            }else if(d < 5){
+                printf("business class");
+            }else{
+                printf("economy class");
+            }
+        }else{
+            printf("Seat Unassigned - No Boarding pass available. Try Again!");
+        }
+    }
+    else{
+        printf("Invalid input");
     }
     
     
