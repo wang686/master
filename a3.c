@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<string.h>
 #define ROW 6
@@ -64,9 +65,7 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
             }
-             else{
-                printf("Next flight leaves in 3 hours");
-            }           
+
         break;
       case 2:
             initSelection = second(seatMap);
@@ -83,9 +82,7 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
             }
-            else{
-                printf("Next flight leaves in 3 hours");
-            }
+
             
         break;
       case 3:
@@ -102,9 +99,7 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){first(seatMap);}
             }
-            else{
-                printf("Next flight leaves in 3 hours");
-            }
+
             
         break;
       case 4:
