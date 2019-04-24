@@ -11,6 +11,7 @@
 //print map 0 mean available, 1 means sold
 void printSeatMap(char allSeats[][COL][NAME]);
 void printManifest(char allSeats[][COL][NAME]);
+void printManifest(char allSeats[][COL][NAME], int d, int c);
 //assign a seat in first class. return -1 if it's full
 int first(char allSeats[][COL][NAME]); 
 //assign a seat in business class. return -1 if it's full
@@ -26,6 +27,7 @@ int findThird(char allSeats[][COL][NAME]);
 
 int main(){
   int i,j,k,s;
+  int d; char c;
   int sold,class;
   char seatMap[ROW][COL][NAME] ={{"a"}};
   int menuSelection = 0;
@@ -107,6 +109,11 @@ int main(){
         printManifest(seatMap);
         break;
       case 6:
+      printf("\nEnter digit");
+      scanf("%d",d);
+      printf("\nEnter letter(Upper Case)");
+      scanf("%c",c);
+        void printBoardingPass(seatMap,d,c);
         break;
       
       default:
@@ -168,6 +175,11 @@ void printManifest(char allSeats[][COL][NAME]){
             }
         }
     }
+}
+
+void printManifest(char allSeats[][COL][NAME], int d, int c){
+    
+    
 }
 
 
