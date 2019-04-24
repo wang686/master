@@ -8,16 +8,23 @@
 #define FIRST 2
 #define BUS 4
 #define ECO 10
+//print map 0 mean available, 1 means sold
 void printSeatMap(char allSeats[][COL][NAME]);
-int first(char allSeats[][COL][NAME]);
-int second(char allSeats[][COL][NAME]);
-int third(char allSeats[][COL][NAME]);
-int findFirst(char allSeats[][COL][NAME]);
-int findSecond(char allSeats[][COL][NAME]);
-int findThird(char allSeats[][COL][NAME]);
+//assign a seat in first class. return -1 if it's full
+int first(char allSeats[][COL][NAME]); 
+//assign a seat in business class. return -1 if it's full
+int second(char allSeats[][COL][NAME]); 
+//assign a seat in economy class. return -1 if it's full
+int third(char allSeats[][COL][NAME]); 
+//check availablity for first class
+int findFirst(char allSeats[][COL][NAME]); 
+//check availablity for business class
+int findSecond(char allSeats[][COL][NAME]); 
+//check availablity for economy class
+int findThird(char allSeats[][COL][NAME]); 
 
 int main(){
-  int i,j,k;
+  int i,j,k,s;
   int sold,class;
   char seatMap[ROW][COL][NAME] ={{"a"}};
   int menuSelection = 0;
@@ -32,23 +39,78 @@ int main(){
   printf("%s", menu);
   scanf("%d",&menuSelection);
   
+  int initSelection = 0;
+  int availOne = 0;
+  int availTwo = 0;
+  int availThree = 0;
+
   
+  while(1){
   switch(menuSelection){
       case 1:
-            first(seatMap);
+            initSelection = first(seatMap);
+            availTwo = findSecond(seatMap);
+            availThree = findSecond(seatMap);
+            if(initSelection == -1 && availTwo == 0){
+                printf("First class sold out. Would you like to be in business cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){second(seatMap);}
+            }
+            else if(initSelection == -1 && availThree == 0){
+                printf("\nBusiness class sold out. Would you like to be in economy cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){third(seatMap);}
+            }
+            
         break;
       case 2:
-            second(seatMap);
+            initSelection = second(seatMap);
+            availOne = findFirst(seatMap);
+            availThree = findSecond(seatMap);
+            
+            if(initSelection == -1 && availOne == 0){
+                printf("\nBusiness class sold out. Would you like to be in first cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){first(seatMap);}
+            }
+            else if(initSelection == -1 && availThree == 0){
+                printf("\nBusiness class sold out. Would you like to be in economy cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){third(seatMap);}
+            }
+            
         break;
       case 3:
-            third(seatMap);
+            initSelection = third(seatMap);
+            int availOne = findFirst(seatMap);
+            int availTwo = findSecond(seatMap);
+            if(initSelection == -1 && availTwo == 0){
+                printf("\nEconomy class sold out. Would you like to be in Business cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){second(seatMap);}
+            }
+            else if(initSelection == -1 && availThree == 0){
+                printf("\nEconomy class sold out. Would you like to be in first cabinet? press 1 to proceed\n");
+                scanf("%d",&s);
+                if(s == 1){first(seatMap);}
+            }
+            
         break;
+      case 4:
+        printSeatMap(seatMap);
+        //printf("\n%s",seatMap[i][j]);
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      
       default:
         break;
         
       
   }
-  
+  }
   
   
  
@@ -60,8 +122,7 @@ int main(){
   
   
 
-  //printSeatMap(seatMap);
-  printf("\n%s",seatMap[i][j]);
+  
 
   return 0;
 }
@@ -92,6 +153,22 @@ void printSeatMap(char allSeats[][COL][NAME]){
   printf("\n%s",allSeats[0][0]);
 }
 
+void printManifest(char allSeats[][COL][NAME]){
+    int i = 0,j=0,ascii=65;
+    for(i = 0; i < ROW; i++){
+        for(j = 0;j< COL;j++){
+            if(allSeats[i][j][0] != '0'){
+                printf("\n\t%s--%d%c",allSeats[i][j],j,ascii+i);
+            }
+        }
+    }
+}
+
+
+
+
+
+
 int first(char allSeats[][COL][NAME]){
   int i,j,k;
   char name[NAME];
@@ -107,14 +184,8 @@ int first(char allSeats[][COL][NAME]){
         }
     }
   }
-  printf("First class is full, would you like a business class?\nType 1 to proceed\n");
-  scanf("%d",&k);
-  if(k == 1){
-      second(allSeats);
-  }else{
-      printf("\nexit");
-      return 0;
-  }
+    //printf("\nfirst class sold out.\n");
+    return -1;
   
 }
   
@@ -134,14 +205,8 @@ int second(char allSeats[][COL][NAME]){
         }
     }
   }
-  printf("Business class is full, would you like a economy class?\nType 1 to proceed\n");
-  scanf("%d",&k);
-  if(k == 1){
-      third(allSeats);
-  }else{
-      printf("\nexit");
-      return 0;
-  }
+  //printf("\nbusiness class sold out.\n");
+  return -1;
 }
 
 
@@ -160,11 +225,11 @@ int third(char allSeats[][COL][NAME]){
         }
     }
   }
-    printf("\nexit");
-    return 0;
+    //printf("\neconomy class sold out.\n");
+    return -1;
 }
 
-/*int findFirst(char allSeats[][COL][NAME]){
+int findFirst(char allSeats[][COL][NAME]){
   int i,j,k;
   for(i = 0; i < COL;i++){
     for(j = 0; j< FIRST;j++){
@@ -200,4 +265,4 @@ int findThird(char allSeats[][COL][NAME]){
     }
   }
   return -1;
-}*/
+}
