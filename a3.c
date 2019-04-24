@@ -65,6 +65,9 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
             }
+            else if(availTwo == -1 && availThree == -1){
+                printf("Next flight leaves in 3 hours");
+            }
 
         break;
       case 2:
@@ -82,6 +85,10 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
             }
+            else if(availTwo == -1 && availThree == -1){
+                printf("Next flight leaves in 3 hours");
+            }
+            
 
             
         break;
@@ -94,10 +101,13 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){second(seatMap);}
             }
-            else if(initSelection == -1 && availThree == 0){
+            else if(initSelection == -1 && availOne == 0){
                 printf("\nEconomy class sold out. Would you like to be in first cabinet? press 1 to proceed\n");
                 scanf("%d",&s);
                 if(s == 1){first(seatMap);}
+            }
+            else if(availTwo == -1 && availOne == -1){
+                printf("Next flight leaves in 3 hours");
             }
 
             
