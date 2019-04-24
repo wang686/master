@@ -123,7 +123,7 @@ int main(){
         printf("\nEnter digit ");
         scanf("%d",&d);
         printf("\nEnter letter(Upper Case) ");
-        scanf("%c",&c);
+        scanf(" %c",&c);
         printBoardingPass(seatMap,d,c);
         break;
       
