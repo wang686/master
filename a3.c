@@ -10,6 +10,7 @@
 #define ECO 10
 //print map 0 mean available, 1 means sold
 void printSeatMap(char allSeats[][COL][NAME]);
+void printManifest(char allSeats[][COL][NAME]);
 //assign a seat in first class. return -1 if it's full
 int first(char allSeats[][COL][NAME]); 
 //assign a seat in business class. return -1 if it's full
@@ -28,7 +29,7 @@ int main(){
   int sold,class;
   char seatMap[ROW][COL][NAME] ={{"a"}};
   int menuSelection = 0;
-  char menu[] = "\n\tPlease type 1 for \"first class\"\n\tPlease type 2 for \"business class\"\n\tPlease type 3 for \"economy class\"\n\n";
+  char menu[] = "\n\t-----------MENU----------\n\tPlease type 1 for \"first class\"\n\tPlease type 2 for \"business class\"\n\tPlease type 3 for \"economy class\"\n\n";
 
   //init a three d array row number, col number, name.
   for(i = 0; i< ROW;i++){
@@ -36,7 +37,9 @@ int main(){
       strcpy(seatMap[i][j],"0");
   }
   
-  printf("%s", menu);
+  
+  while(1){
+  printf("\n%s", menu);
   scanf("%d",&menuSelection);
   
   int initSelection = 0;
@@ -45,7 +48,7 @@ int main(){
   int availThree = 0;
 
   
-  while(1){
+
   switch(menuSelection){
       case 1:
             initSelection = first(seatMap);
@@ -101,6 +104,7 @@ int main(){
         //printf("\n%s",seatMap[i][j]);
         break;
       case 5:
+        printManifest(seatMap);
         break;
       case 6:
         break;
@@ -155,10 +159,12 @@ void printSeatMap(char allSeats[][COL][NAME]){
 
 void printManifest(char allSeats[][COL][NAME]){
     int i = 0,j=0,ascii=65;
+    printf("\n\t-----PASSENGER MANIFEST-----");
+    
     for(i = 0; i < ROW; i++){
         for(j = 0;j< COL;j++){
             if(allSeats[i][j][0] != '0'){
-                printf("\n\t%s--%d%c",allSeats[i][j],j,ascii+i);
+                printf("\n\t%s--%d%c",allSeats[i][j],j+1,ascii+i);
             }
         }
     }
