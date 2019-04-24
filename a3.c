@@ -110,9 +110,9 @@ int main(){
         break;
       case 6:
         printf("\nEnter digit");
-        scanf("%d",d);
+        scanf("%d",&d);
         printf("\nEnter letter(Upper Case)");
-        scanf("%c",c);
+        scanf("%c",&c);
         printBoardingPass(seatMap,d,c);
         break;
       
@@ -178,6 +178,9 @@ void printManifest(char allSeats[][COL][NAME]){
 }
 
 void printBoardingPass(char allSeats[][COL][NAME], int d, char c){
+    if(d<= 10 && c<= 70 && d>= 1 && c>=65){
+        printf("\n\t%s",allSeats[d-1][c-65]);
+    }
     
     
 }
