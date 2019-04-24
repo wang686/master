@@ -29,7 +29,7 @@ int main(){
   int sold,class;
   char seatMap[ROW][COL][NAME] ={{"a"}};
   int menuSelection = 0;
-  char menu[] = "\n\t-----------MENU----------\n\tPlease type 1 for \"first class\"\n\tPlease type 2 for \"business class\"\n\tPlease type 3 for \"economy class\"\n\n";
+  char menu[] = "\n\t-----------MENU----------\n\tPlease type 1 for \"first class\"\n\tPlease type 2 for \"business class\"\n\tPlease type 3 for \"economy class\"\n\tPlease type 4 to see available seats\n\tPlease type 5 to see passenger manifest\n\tPlease type 6 to print boarding pass\n";
 
   //init a three d array row number, col number, name.
   for(i = 0; i< ROW;i++){
