@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include<stdio.h>
 #include<string.h>
 #define ROW 6
@@ -131,18 +129,6 @@ int main(){
   }
   }
   
-  
- 
-  
-  
-  
-  
-  
-  
-  
-
-  
-
   return 0;
 }
 
