@@ -66,7 +66,9 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
             }
-            
+             else{
+                printf("Next flight leaves in 3 hours");
+            }           
         break;
       case 2:
             initSelection = second(seatMap);
@@ -82,6 +84,9 @@ int main(){
                 printf("\nBusiness class sold out. Would you like to be in economy cabinet? press 1 to proceed\n");
                 scanf("%d",&s);
                 if(s == 1){third(seatMap);}
+            }
+            else{
+                printf("Next flight leaves in 3 hours");
             }
             
         break;
@@ -99,6 +104,9 @@ int main(){
                 scanf("%d",&s);
                 if(s == 1){first(seatMap);}
             }
+            else{
+                printf("Next flight leaves in 3 hours");
+            }
             
         break;
       case 4:
@@ -109,9 +117,9 @@ int main(){
         printManifest(seatMap);
         break;
       case 6:
-        printf("\nEnter digit");
+        printf("\nEnter digit ");
         scanf("%d",&d);
-        printf("\nEnter letter(Upper Case)");
+        printf("\nEnter letter(Upper Case) ");
         scanf("%c",&c);
         printBoardingPass(seatMap,d,c);
         break;
@@ -182,18 +190,18 @@ void printBoardingPass(char allSeats[][COL][NAME], int d, char c){
         if(allSeats[d-1][c-65] != 0){
             printf("\n\t%s--%d%c",allSeats[d-1][c-65],d,c);
             if(d < 2){
-                printf("first class");
+                printf("\tfirst class");
             }else if(d < 5){
-                printf("business class");
+                printf("\tbusiness class");
             }else{
-                printf("economy class");
+                printf("\teconomy class");
             }
         }else{
-            printf("Seat Unassigned - No Boarding pass available. Try Again!");
+            printf("\nSeat Unassigned - No Boarding pass available. Try Again!");
         }
     }
     else{
-        printf("Invalid input");
+        printf("\nInvalid input");
     }
     
     
